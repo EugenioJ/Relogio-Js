@@ -70,6 +70,8 @@
                 manha = 'assets/images/manha.jpg'
                 dia = 'assets/images/dia.jpg'
                 tarde = 'assets/images/tarde.jpg'
+                bgimg = document.body.style.backgroundRepeat = "no-repeat";
+                        document.body.style.backgroundSize = "100%"
                 function tempo(){ 
                     var date = new Date();
                     var mes = date.toLocaleString("PT-BR", { month: "long" });
@@ -83,25 +85,20 @@
                 function bg(agora){
                     if (agora > 19 | agora < 5){
                         document.body.style.backgroundImage = "url("+noite+")";
-                        document.body.style.backgroundRepeat = "no-repeat"
-                        document.body.style.backgroundSize = "100%"
-                        console.log(background)
+                        bgimg
                     }
                     else if (agora > 5 | agora < 11){
                         document.body.style.backgroundImage = "url("+manha+")";
-                        document.body.style.backgroundRepeat = "no-repeat"
-                        document.body.style.backgroundSize = "100%"
+                        bgimg
 
                     }
                     else if(agora > 11 | agora < 16){
                         document.body.style.backgroundImage = "url("+dia+")";
-                        document.body.style.backgroundRepeat = "no-repeat"
-                        document.body.style.backgroundSize = "100%"
+                        bgimg
                     }
                     else if(agora > 16 | agora < 19){
                         document.body.style.backgroundImage = "url("+tarde+")";
-                        document.body.style.backgroundRepeat = "no-repeat"
-                        document.body.style.backgroundSize = "100%"
+                        bgimg
                     }
                 };
                 bg(horaG)
