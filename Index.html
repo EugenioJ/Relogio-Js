@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Relógio Online</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif   ;
+        }
+        .container{
+            margin: 0 auto;
+            width: 80vw;
+        }
+        body{
+            background-color: #4B3BF7;
+        }
+        h1{
+            font-size: 60px;
+            padding: 40px 0px 20px 0px;
+            text-align: center;
+            color: black;
+            text-shadow: 1px 1px 1px rgb(25, 15, 165);
+            
+        }
+        p{
+            font-size: 35px;
+            color: whitesmoke;
+            text-shadow: 1px 1px 10px rgb(24, 9, 235);
+            text-align: center;
+        }
+        main{
+            display: flex;
+            align-items: flex-start ;
+            height: 80vh;
+        } 
+        main div{
+            display: flex;
+            
+          
+            align-items: center;
+            justify-content: center;
+        }
+        #atual{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            width: 40vw;
+            height: 150px;
+            box-shadow: 2px 1px 10px 3px rgb(19, 17, 48);
+        }
+    </style>
+</head>
+<body>
+    <header class="container">  
+        <div>
+            <h1>AGORA</h1>
+        </div>
+    </header>  
+    <main>
+        <div class="container">
+            <p id="atual">Agora são: </p>
+            <script>
+                noite = 'assets/images/noite.jpg'
+                manha = 'assets/images/manha.jpg'
+                dia = 'assets/images/dia.jpg'
+                tarde = 'assets/images/tarde.jpg'
+                function tempo(){ 
+                    var date = new Date();
+                    var mes = date.toLocaleString("PT-BR", { month: "long" });
+                    var semana = date.toLocaleString("PT-BR",{ weekday: "long"});
+                
+                    var segundos = date.getSeconds();
+                    var hora = document.querySelector("#atual").innerHTML = `${date.getHours()}h${date.getMinutes('2-digit')}min${segundos}s ${semana} ${date.getDay()} de ${mes}`}
+
+                timer = setInterval(tempo, 1000);
+                var horaG =  new Date().getHours();
+                function bg(agora){
+                    if (agora > 19 | agora < 5){
+                        document.body.style.backgroundImage = "url("+noite+")";
+                        document.body.style.backgroundRepeat = "no-repeat"
+                        document.body.style.backgroundSize = "100%"
+                        console.log(background)
+                    }
+                    else if (agora > 5 | agora < 11){
+                        document.body.style.backgroundImage = "url("+manha+")";
+                        document.body.style.backgroundRepeat = "no-repeat"
+                        document.body.style.backgroundSize = "100%"
+
+                    }
+                    else if(agora > 11 | agora < 16){
+                        document.body.style.backgroundImage = "url("+dia+")";
+                        document.body.style.backgroundRepeat = "no-repeat"
+                        document.body.style.backgroundSize = "100%"
+                    }
+                    else if(agora > 16 | agora < 19){
+                        document.body.style.backgroundImage = "url("+tarde+")";
+                        document.body.style.backgroundRepeat = "no-repeat"
+                        document.body.style.backgroundSize = "100%"
+                    }
+                };
+                bg(horaG)
+            </script>
+        </div>  
+        <picture>
+            <img>
+        </picture>
+
+    </main>
+
+</body>
+</html>
