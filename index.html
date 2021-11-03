@@ -82,22 +82,27 @@
 
                 timer = setInterval(tempo, 1000);
                 var horaG =  new Date().getHours();
+            
                 function bg(agora){
-                    if (agora > 19 & agora <= 5){
+                    if (agora >= 0 & agora < 6){
                         document.body.style.backgroundImage = "url("+noite+")";
                         bgimg
                     }
-                    else if (agora > 5 & agora <= 11){
+                    else if (agora > 5 & agora < 10){
                         document.body.style.backgroundImage = "url("+manha+")";
                         bgimg
 
                     }
-                    else if(agora > 11 & agora <= 16){
+                    else if(agora > 9 & agora < 15){
                         document.body.style.backgroundImage = "url("+dia+")";
                         bgimg
                     }
-                    else if(agora > 16 & agora <= 19){
+                    else if(agora > 14 & agora < 18){
                         document.body.style.backgroundImage = "url("+tarde+")";
+                        bgimg
+                    }
+                    else if (agora > 17 & agora < 24){
+                        document.body.style.backgroundImage = "url("+noite+")";
                         bgimg
                     }
                 };
